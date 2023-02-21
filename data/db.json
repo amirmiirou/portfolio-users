@@ -1,0 +1,35 @@
+{
+  "personne": [
+    {
+      "id": "1",
+      "first": "amir",
+      "last": "nait seddik"
+    },
+    {
+      "id": "2",
+      "first": "youcef",
+      "last": "nait seddik"
+    },
+    {
+      "id": "3",
+      "first": "yaakoub",
+      "last": "nait seddik"
+    },
+    {
+      "id": "4",
+      "first": "zizou",
+      "last": "nait seddik"
+    },
+    {
+      "id": "5",
+      "first": "houari",
+      "last": "saadi"
+    }
+  ],
+  "animaux": [
+    {
+      "id": "1",
+      "first": "cat"
+    }
+  ]
+}
