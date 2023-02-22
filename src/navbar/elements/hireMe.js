@@ -29,7 +29,7 @@ return(
 <input type={"text"} id="describtion" name="describtion" placeholder="what kind of job"  onChange={(ele)=>{setDesc(ele.target.value)}} />
 </div>
 <div>
-<button onClick={()=>{axios.post("http://localhost:3001/register",{a:email,b:pass,c:entreprise,d:desc})}} >send offer</button>
+<button onClick={()=>{axios.post("https://backend-api-qpc4.onrender.com/register",{a:email,b:pass,c:entreprise,d:desc})}} >send offer</button>
  
 </div>
 
