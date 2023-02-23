@@ -19,7 +19,7 @@ useEffect(()=>{console.log(checklist)},[checklist])
 
 
 
-axios.get("https://backend-api-qpc4.onrender.com/names").then((res)=>{
+axios.get("https://backend-site.onrender.com/names").then((res)=>{
   
 var x=Object.values(res?.data)
 var y=nameProjects.length,z=x.length
@@ -54,7 +54,7 @@ if( z===y  ){
 
 
 
-axios.get("https://backend-api-qpc4.onrender.com/images").then((res)=>{
+axios.get("https://backend-site.onrender.com/images").then((res)=>{
   
  
  var x=Object.values(res?.data)
@@ -140,7 +140,7 @@ parametre.attribute.a==="miroua132@gmail.com" && parametre.attribute.b===true ?
 <label className="text-red-500">this section has been designed for the owner only</label><br/>
 <input type={"text"} placeholder="enter new project's name" name="name" onChange={(ele)=>{setX(ele.target.value)}}/> <br/>
 <input type ={"text"} placeholder="enter description" name="description" onChange={(ele)=>{setY(ele.target.value)}}/> <br/>
-<button onClick={()=>{axios.post("https://backend-api-qpc4.onrender.com/addNewProject",{a:x,b:y})}}>add</button>
+<button onClick={()=>{axios.post("https://backend-site.onrender.com/addNewProject",{a:x,b:y})}}>add</button>
 </div>
 
 <div>
@@ -161,7 +161,7 @@ parametre.attribute.a==="miroua132@gmail.com" && parametre.attribute.b===true ?
     }
   </div>
 
-<form  action="https://backend-api-qpc4.onrender.com/folder" encType="multipart/form-data"   method="post" >
+<form  action="https://backend-site.onrender.com/folder" encType="multipart/form-data"   method="post" >
 <input id="empty" name="test"  className="w-5 hidden"/>
 <input type="file" name="upload" multiple />
 <input type="submit" value="upload"  />
