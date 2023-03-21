@@ -11,10 +11,8 @@ import {GrCode} from "@react-icons/all-files/gr/GrCode"
 import './global.css'
 import {RiLightbulbLine} from "@react-icons/all-files/ri/RiLightbulbLine"
 import {RiLightbulbFill} from "@react-icons/all-files/ri/RiLightbulbFill"
-//import {BsList} from "@react-icons/all-files/bs/BsList"
 import axios from "axios"
 import React, { useEffect, useState } from "react"
-//import { Xs } from "./elements/xs"
 export  const context=React.createContext()
 
 
@@ -22,18 +20,16 @@ export  const context=React.createContext()
 
 function Global(){
     const [theme,setTheme]=useState("light")
-    const [e,setE]=useState(false)
-
-    const [email,setEmail]=useState()
+const [e,setE]=useState(false)  
     const [password,setPass]=useState()
     const [z,setZ]=useState(false)
-//     const [l,setL]=useState(false)
-useEffect(()=>{
+const [email,setEmail]=useState()
+    useEffect(()=>{
     theme === "dark" ? document.documentElement.classList.add("dark") : document.documentElement.classList.remove("dark") 
-//ca permet de creer un attribut class au niveau de la balise html
+    },[theme])
 
-},[theme])
 
+useEffect(()=>{console.log(e)},[e])
 
 return (
 <context.Provider value={[z,setZ]}>
@@ -55,7 +51,22 @@ return (
 <div><Link to='#2'>PROJECTS</Link></div>
 <div><Link to='#3'>CONTACT</Link></div>
 <div><Link to='#4'>CENTER OF INTEREST</Link></div>
-<div>{e===false ? <Link to="#5">LOGIN</Link> : <div><select id="ze" > <option value={email} >{email}</option> <option value={"logout"}>logout</option></select> </div>    } </div>
+<div>{localStorage.getItem("value")==="false" ? <Link to="#5">LOGIN</Link> : 
+    
+
+<select id="ze" onChange={()=>{
+
+
+setE(false)  
+localStorage.setItem("email","")
+localStorage.setItem("value","false")
+}} >
+         <option value={localStorage.getItem("email")} >{localStorage.getItem("email")}</option> 
+         <option value={"logout"} >logout</option>
+</select>  
+
+    
+    } </div>
 </div>
 
 
@@ -94,7 +105,8 @@ I am at your service.
 <div  className=''>
 {<About/>}
 {<HireMe/>}
-{<Projects attribute={{a:email,b:e}}/>}
+
+{<Projects/>}
 {<Blog/>}
 {<Contact/>}
 
@@ -102,7 +114,8 @@ I am at your service.
 <div id="5">
 
 {
-e===false ? <div>
+    
+localStorage.getItem("value")==="false" ? <div>
 
 
 <h1 className="text-4xl">LOGIN</h1>
@@ -111,21 +124,27 @@ e===false ? <div>
 <input type="password" name="pass" placeholder="enter your pass" onChange={(ele)=>{setPass(ele.target.value)
 }} />
 
-<button onClick={()=>{axios.get("https://backend-site.onrender.com/login").then((res)=>{
+<button onClick={()=>{axios.get("http://localhost:3001/login").then((res)=>{
 
-let tableau=Object.values(res?.data)
+let tableau=res?.data
 
 
 let test=false
 for(let i=0;i<tableau.length && test===false;i++){
-    console.log(tableau[i].email+" "+tableau[i].pass)
-if(tableau[i].email===email && tableau[i].pass===password){
+    
+if(tableau[i].email===email && tableau[i].password===password){
 test=true
 }
 
 }
 if(test===true){
 setE(true)
+localStorage.setItem("email",email)
+localStorage.setItem("value","true")
+}else{
+
+alert("verify your enter")
+
 }
 })}} >login</button>
 <div>

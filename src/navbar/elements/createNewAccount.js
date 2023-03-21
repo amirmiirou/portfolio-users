@@ -24,11 +24,9 @@ contextConsumer[0]===false ? null :
 
 <div className="flex flex-col ">
 
-<input onChange={(ele)=>{setEmail(ele.target.value)}} placeholder="enter your email" type="email" />
-<input  onChange={(ele)=>{setPass(ele.target.value)}} placeholder="set your password" type="password"  />
+<input onChange={(ele)=>{setEmail(ele.target.value)}} placeholder="enter your email" type="email"  />
+<input  onChange={(ele)=>{setPass(ele.target.value)}} placeholder="set your password" type="password"   />
 <button className="text-black" onClick={()=>{axios.post("http://localhost:3001/users",{a:email,b:password}).then((res)=>{console.log(res?.data)})}}>create</button>
-
-
 
 
 </div>

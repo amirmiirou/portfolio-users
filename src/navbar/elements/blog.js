@@ -1,10 +1,8 @@
-import { useContext } from "react"
 import Center from "../../centre-dinteret-cv-exemple.jpg"
-import { context } from "../global.js"
+
 import "./blog.css"
 function Blog(){
-const contextConsumer=useContext(context)
-console.log(contextConsumer)
+
 
 
 return(
