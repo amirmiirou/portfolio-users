@@ -15,7 +15,7 @@ const [y,setY]=useState()
 
 
 
-axios.get("https://back-oxze.onrender.com//names").then((res)=>{
+axios.get("https://back-oxze.onrender.com/names").then((res)=>{
 var resultat=Object.values(res?.data)
 
 
