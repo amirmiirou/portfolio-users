@@ -26,7 +26,7 @@ contextConsumer[0]===false ? null :
 
 <input onChange={(ele)=>{setEmail(ele.target.value)}} placeholder="enter your email" type="email"  />
 <input  onChange={(ele)=>{setPass(ele.target.value)}} placeholder="set your password" type="password"   />
-<button className="text-black" onClick={()=>{axios.post("http://localhost:3001/users",{a:email,b:password}).then((res)=>{console.log(res?.data)})}}>create</button>
+<button className="text-black" onClick={()=>{axios.post("https://back-oxze.onrender.com/users",{a:email,b:password}).then((res)=>{console.log(res?.data)})}}>create</button>
 
 
 </div>

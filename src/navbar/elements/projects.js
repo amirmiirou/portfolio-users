@@ -15,7 +15,7 @@ const [y,setY]=useState()
 
 
 
-axios.get("http://localhost:3001/names").then((res)=>{
+axios.get("https://back-oxze.onrender.com//names").then((res)=>{
 var resultat=Object.values(res?.data)
 
 
@@ -40,7 +40,7 @@ localStorage.getItem("email")==="miroua132@gmail.com" && localStorage.getItem("v
 <label className="text-red-500">this section has been designed for the owner only</label><br/>
 <input type={"text"} placeholder="enter new project's name" name="name" onChange={(ele)=>{setX(ele.target.value)}}/> <br/>
 <input type ={"text"} placeholder="enter description" name="descriptions" onChange={(ele)=>{setY(ele.target.value)}}/> <br/>
-<button onClick={()=>{axios.post("http://localhost:3001/addNewProject",{a:x,b:y}).then((res)=>{setNames(res?.data)})}} >add</button>
+<button onClick={()=>{axios.post("https://back-oxze.onrender.com/addNewProject",{a:x,b:y}).then((res)=>{setNames(res?.data)})}} >add</button>
 
 
   
@@ -61,7 +61,7 @@ localStorage.getItem("email")==="miroua132@gmail.com" && localStorage.getItem("v
     }
   </div>
 
-<form  action="http://localhost:3001/folder" encType="multipart/form-data"   method="post" >
+<form  action="https://back-oxze.onrender.com/folder" encType="multipart/form-data"   method="post" >
 <label htmlFor="projectSelected">the project selected is : </label>
 <input name="projectSelected" value={checklist} />
 <input type="file" name="upload" multiple />
